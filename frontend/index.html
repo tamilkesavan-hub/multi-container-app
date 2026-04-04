@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DevOps App</title>
+</head>
+<body>
+  <h1>My DevOps Project</h1>
+  <input id="item" placeholder="Enter item"/>
+  <button onclick="addItem()">Add</button>
+
+  <script>
+    async function addItem() {
+      const name = document.getElementById("item").value;
+        await fetch("/api/add", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name })
+      });
+      alert("Added!");
+    }
+  </script>
+</body>
+</html>
